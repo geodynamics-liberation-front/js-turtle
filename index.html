@@ -1,0 +1,67 @@
+<html>
+	<head>
+		<title>Javascript Turtle Graphics</title>
+		<link rel="stylesheet" href="codemirror-4.2/lib/codemirror.css" />
+		<script src="codemirror-4.2/lib/codemirror.js"></script>
+		<script src="codemirror-4.2/mode/javascript/javascript.js"></script>
+		<script src="turtle.js"></script>
+		<script src="math.js"></script>
+		<script src="chrome.js"></script>
+		<link rel="stylesheet" href="style.css" />
+		<script type="text/javascript">
+function _init(restore_local,paper_id)
+{
+	if( _restore ) { return; }
+	if( paper_id==undefined )
+	{
+		paper_id="paper";
+	}
+	if( restore_local==undefined )
+	{
+		restore_local=false;
+	}
+	_init_turtle(paper_id);
+	clean_up();
+	_init_chrome(restore_local);
+	document.getElementById('cmdline').focus();
+}
+		</script>
+	</head>
+	<body onload="_init(true);">
+		<div id="menu"> 
+			<a href="#" onclick="load();return false;">load</a> 
+			<a href="#" onclick="save();return false;">save</a> 
+			<a href="#" onclick="_toggle_view();return false;">editor</a>
+		</div> 
+		<div id="cmdline_view">
+			<div id="cmd_history"> </div>
+			<input id="cmdline" type="text" onkeydown="return _cmdline_keydown(event);" onkeypress="return _cmdline_keypress(event);"/>
+		</div>
+
+		<div id="editor_view">
+			<textarea id="editor" ></textarea> 
+		</div>
+		<div id="dialogs">
+			<div id="background">
+			</div>
+			<div id="file_load">
+				<textarea id="load_editor" style="width: 800px; height: 50px"></textarea> 
+				<input type="button" value="ok" onclick="load_ok()"/>
+				<input type="button" value="cancel" onclick="load_cancel()"/>
+			</div>
+		</div>
+		<div id="status"> 
+			<span class="label">X:</span>0&nbsp;
+			<span class="label">Y:</span>0&nbsp;
+			<span class="label">&theta;:</span>90&deg;&nbsp;
+			<span class="label">Pen:</span>down&nbsp;
+			<span class="label">Zoom:</span>100%&nbsp;
+		</div>
+		<canvas id="paper" width="800" height="300" style="resize: both; overflow: auto"></canvas>
+<!--
+		<div id="container" style="width: 100px; height: 100px; border: solid red 1px; resize: both; overflow: hidden;">
+		</div>
+-->
+		<input type="file" id="files" name="file" onchange="load_file_change(event)" style="display: none" />
+	</body>
+</html>

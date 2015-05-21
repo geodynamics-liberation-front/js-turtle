@@ -1,0 +1,192 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	margin: 20px;
+}
+canvas { 
+	border: 1px solid black; 
+} 
+
+canvas.dragging {
+	cursor: move;
+}
+
+/* the command line */
+
+#cmdline { 
+	border: 0;
+	border: 1px solid black;
+	width: 802px; 
+	font-family: monospace; 
+	margin-top: 5px;
+	margin-bottom: 10px;
+}
+
+
+/* the commands history */
+#cmd_history
+{
+	width: 800px;
+	height: 200px;
+	background-color: #eeeeee;
+	overflow-y: auto;
+	overflow-x: hidden;
+	border: 1px solid black;
+}
+
+.odd { 
+	background-color: #cccccc;  
+	margin: 0px;
+}
+
+.even { 
+	background-color: #eeeeee; 
+	margin: 0px;
+}
+
+.even .cmd_history_text { 
+	background-color: #eeeeee; 
+	margin: 0px;
+}
+
+.cmd_history_item { 
+	clear: both;
+	border: 0; 
+	font-family: monospace;
+	overflow-x: hidden;
+	white-space: nowrap;
+}
+
+.cmd_history_number {
+	vertical-align: top;
+	display: inline-block;
+	text-align: right;
+	width: 50px;
+	padding-right: 5px;
+	border-right: 1px solid black;
+	background-color: #eeeeee;
+	font-family: monospace;
+}
+
+.cmd_history_text {
+	display: inline-block;
+	padding: 2px; 
+	padding-left: 5px;
+	width: 100%;
+	border-left: 1px solid black;
+	margin-left: -1px;
+}
+
+
+.cmd_history_text:hover { 
+	border: 1px solid black; 
+	padding: 1px; 
+	padding-left: 5px;
+}
+
+.cmd_error { 
+	display: inline-block;
+	padding-left: 5px;
+	width: 100%;
+	border-left: 1px solid black;
+	margin-left: -1px;
+	color: red;
+}
+
+
+#cmd_history { 
+	border: 1px solid black; 
+	width: 800px; 
+}
+
+/* the code editor */ 
+
+#editor_view { 
+	display: none; 
+	margin-bottom: 10px;
+	border: 1px solid black;
+	width: 800px;
+}
+
+#editor {
+height: 200px;
+width: 800px;
+}
+
+/* the status bar */
+
+#status { 
+	color: #0000ff; 
+	font-family: monospace; 
+}
+
+#status .label { 
+	color: #ccccff; 
+}
+
+/* dialog boxes */
+#dialogs {
+position: fixed;
+top: 0px;
+left: 0px;
+width: 100%;
+height: 100%;
+display: none;
+}
+
+#background {
+width: 100%;
+height: 100%;
+color: white;
+background-color: black;
+opacity: 0.5;
+/* position: fixed; */
+position: absolute;
+top: 0px;
+left: 0px;
+display: none;
+}
+
+#file_load {
+border: 1px solid black;
+padding: 5px;
+position: absolute;
+background-color: white;
+opacity: 1;
+width: 90%;
+height: 90%;
+top: 5%;
+left: 5%;
+display: none;
+}
+
+/* The editor */
+
+/* Codemirror styles */
+
+.CodeMirror {
+width: 800px;
+height: 222px;
+}
+/*
+.CodeMirror-scroll {
+  width: 100%
+}
+
+.CodeMirror-fullscreen {
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 9999;
+	margin: 0;
+	padding: 0;
+	border: 0px solid #BBBBBB;
+	opacity: 1;
+}
+*/

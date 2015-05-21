@@ -1,0 +1,109 @@
+<html>
+	<head>
+		<title>Javascript Turtle Graphics</title>
+	</head>
+	<body>
+<pre>
+function shape(sides,length)
+{
+	a=360/sides;
+	for(var n=0; n&lt;sides; n++)
+	{
+		forward(length);
+		left(a);
+	}
+}
+<pre>
+function star(points,length) 
+{ 
+	a=360/points; 
+	for(var n=0; n&lt;points; n++) 
+	{ 
+		forward(length); 
+		left(a*2); 
+	} 
+}
+</pre>
+<pre>
+function spiral(length)
+{
+	if(length&lt;30)
+	{
+		forward(length);
+		left(15);
+		spiral(length*1.02)
+	}
+}
+</pre>
+<pre>
+function spiral_b()
+{
+	for( var i=1; i&lt;216; i++ )
+	{
+		forward(i);
+		left(70);
+	}
+}
+<pre>
+function web()
+{
+	for( var i=0; i&lt;36; i++ )
+	{
+		for( var j=0; j&lt;36; j++ )
+		{
+			forward(16);
+			left(10);
+		}
+		left(10);
+	}
+}
+</pre>
+<pre>
+function random_walk(n) 
+{ 
+	if(n==undefined) { n=10000; }
+	for( var i=0; i&lt;n; i++ ) 
+	{ 
+		forward(5);
+		left(Math.random()*360);
+		if(x&gt;width/2) { x=width/2; } 
+		if(x&lt;-width/2) { x=-width/2; } 
+		if(y&gt;height/2) { y=height/2; } 
+		if(y&lt;-height/2) { y=-height/2; } 
+	} 
+}
+</pre>
+<pre>
+function erase() 
+{
+	paper.clearRect(-width/2,-height/2,width,height);
+	moves=[];
+}
+</pre>
+<pre>
+var hilbert_size;
+
+function draw_hilbert(level)
+{
+	hilbert_size=192/Math.pow(2,level)
+	hilbert(level,1)
+}
+
+function hilbert(level,parity)
+{
+	if( level&lt;0 ) { return; }
+	left(parity*90);
+	hilbert(level-1,-parity);
+	forward(hilbert_size);
+	left(-parity*90);
+	hilbert(level-1,parity);
+	forward(hilbert_size);
+	hilbert(level-1,parity);
+	left(-parity*90)
+	forward(hilbert_size)
+	hilbert(level-1,-parity);
+	left(parity*90)
+}
+</pre>
+	</body>
+</html>
